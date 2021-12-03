@@ -21,6 +21,7 @@ public class PropertyManager {
             String propFileName = "./application.properties";
                 // "C:\\Users\\alpotapenko\\IP\\log_script\\src\\resources\\application.properties";
                 // "./application.properties";
+                // "C:\\Users\\AtApse\\IdeaProjects\\log_script\\src\\resources\\application.properties";
 
             inputStream = new FileInputStream(propFileName);
             prop.load(inputStream);
