@@ -65,13 +65,22 @@ public class PodsCatalog {
         PODS.put("lah","loan-application-history");
         PODS.put("дфр","loan-application-history");
         PODS.put("ma","match-application");
-        PODS.put("ьф","match-applicaiton");
+        PODS.put("ьф","match-application");
         PODS.put("cat","loan-application-catalog");
         PODS.put("сфе","loan-application-catalog");
         PODS.put("aml","aml-check-command");
         PODS.put("фьд","aml-check-command");
         PODS.put("cngc","contract-number-generation-command");
         PODS.put("стпс","contract-number-generation-command");
-
+        PODS.put("blac","basic-loan-application-command");
+        PODS.put("идфс","basic-loan-application-command");
+        PODS.put("basic","basic-loan-application-command");
+        PODS.put("ифышс","basic-loan-application-command");
+        PODS.put("asc","authorization-scans-command");
+        PODS.put("фыс","authorization-scans-command");
+        PODS.put("vc","verification-command");
+        PODS.put("мс","verification-command");
+        PODS.put("ic","identification-command");
+        PODS.put("шс","identification-command");
     }
 }
