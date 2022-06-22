@@ -12,6 +12,8 @@ public class PodsCatalog {
         PODS.put("фйа", "arsnova-query-facade");
         PODS.put("vqf", "verona-query-facade");
         PODS.put("мйа", "verona-query-facade");
+        PODS.put("dqf", "dbo-query-facade");
+        PODS.put("вйа", "dbo-query-facade");
         PODS.put("cccc", "card-contract-creation-command");
         PODS.put("сссс", "card-contract-creation-command");
         PODS.put("ccac", "card-contract-activation-command");
@@ -38,6 +40,8 @@ public class PodsCatalog {
         PODS.put("здфыешс", "card-plastic-delivery-command");
         PODS.put("sign", "loan-application-sign-types");
         PODS.put("ышпт", "loan-application-sign-types");
+        PODS.put("last", "loan-application-sign-types");
+        PODS.put("дфые", "loan-application-sign-types");
         PODS.put("pc", "params-collector");
         PODS.put("зс", "params-collector");
         PODS.put("dm", "decision-maker");
@@ -46,8 +50,6 @@ public class PodsCatalog {
         PODS.put("дф", "loan-application");
         PODS.put("lapt", "loan-application-process-terminator");
         PODS.put("дфзе", "loan-application-process-terminator");
-        PODS.put("dqf", "dbo-query-facade");
-        PODS.put("вйа", "dbo-query-facade");
         PODS.put("not", "notification");
         PODS.put("тще", "notification");
         PODS.put("close", "card-contract-closing-command");
@@ -82,5 +84,79 @@ public class PodsCatalog {
         PODS.put("мс","verification-command");
         PODS.put("ic","identification-command");
         PODS.put("шс","identification-command");
+        PODS.put("lcat","loan-application-catalog");
+        PODS.put("дсфе","loan-application-catalog");
+        PODS.put("pch","private-credit-history");
+        PODS.put("зср","private-credit-history");
+        PODS.put("goac","grant-operation-access-command");
+        PODS.put("пщфс","grant-operation-access-command");
+        PODS.put("sh","sms-handler");
+        PODS.put("ыр","sms-handler");
+        PODS.put("h","handler");
+        PODS.put("р","handler");
+        PODS.put("afs","afs-check");
+        PODS.put("фаы","afs-check");
+        PODS.put("afsc","afs-check-command");
+        PODS.put("фаыс","afs-check-command");
+        PODS.put("aup","arsnova-user-profile");
+        PODS.put("фгз","arsnova-user-profile");
+        PODS.put("ccclc","card-contract-closing-command");
+        PODS.put("сссдс","card-contract-closing-command");
+        PODS.put("cdc","carrier-delivery-command");
+        PODS.put("свс","carrier-delivery-command");
+        PODS.put("ca","clean-address");
+        PODS.put("сф","clean-address");
+        PODS.put("cdsc","client-data-sync-command");
+        PODS.put("свыс","client-data-sync-command");
+        PODS.put("chc","credit-history-command");
+        PODS.put("срс","credit-history-command");
+        PODS.put("chp","credit-history-profile");
+        PODS.put("срз","credit-history-profile");
+        PODS.put("cr","credit-report");
+        PODS.put("ск","credit-report");
+        PODS.put("edc","esign-document-command");
+        PODS.put("увс","esign-document-command");
+        PODS.put("foac","front-office-auth-client");
+        PODS.put("ащфс","front-office-auth-client");
+        PODS.put("fop","front-office-permissions");
+        PODS.put("ащз","front-office-permissions");
+        PODS.put("hta","human-task-arbitrator");
+        PODS.put("реф","human-task-arbitrator");
+        PODS.put("ips","ips-archive-loan-application-dispatcher");
+        PODS.put("шзы","ips-archive-loan-application-dispatcher");
+        PODS.put("lapl","loan-application-process-log");
+        PODS.put("дфзд","loan-application-process-log");
+        PODS.put("li","loan-insurance");
+        PODS.put("дш","loan-insurance");
+        PODS.put("lpi","loan-product-irr");
+        PODS.put("дзш","loan-product-irr");
+        PODS.put("lpcc","loyalty-program-check-command");
+        PODS.put("дзсс","loyalty-program-check-command");
+        PODS.put("msc","mail-stream-commander");
+        PODS.put("ьыс","mail-stream-commander");
+        PODS.put("pse","pfr-statement-extractor");
+        PODS.put("зыу","pfr-statement-extractor");
+        PODS.put("po","poa-operator");
+        PODS.put("зщ","poa-operator");
+        PODS.put("psc","product-switcher-command");
+        PODS.put("зыс","product-switcher-command");
+        PODS.put("ssc","send-sms-command");
+        PODS.put("ыыс","send-sms-command");
+        PODS.put("vh","verona-handler");
+        PODS.put("мр","verona-handler");
+        PODS.put("vht","verona-human-task");
+        PODS.put("мре","verona-human-task");
+        PODS.put("xsoc","x-sell-offer-command");
+        PODS.put("чыщс","x-sell-offer-command");
+        PODS.put("xsell","x-sell-offer-command");
+        PODS.put("чыудд","x-sell-offer-command");
+
+
+
+
+
+
+
+
     }
 }

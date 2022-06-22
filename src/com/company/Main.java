@@ -3,7 +3,6 @@ package com.company;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
     private static String loggedIn = "";
@@ -15,7 +14,7 @@ public class Main {
         PodsCatalog.init();
         System.out.println("Enter project name. One of: " + PropertyManager.PROJECTS);
         Scanner in = new Scanner(System.in);
-        String ftServer = "--server=https://api.test.k8s.rccf.ru:6443";
+        String ftServer = "--server=10.12.62.43:6443";
         String testServer = "--server=10.12.62.43:6443";
         String prodServer = "--server=https://ocp-prod.rccf.ru:8443";
         String project = in.nextLine();
