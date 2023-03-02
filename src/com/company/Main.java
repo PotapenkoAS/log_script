@@ -14,8 +14,10 @@ public class Main {
         PodsCatalog.init();
         System.out.println("Enter project name. One of: " + PropertyManager.PROJECTS);
         Scanner in = new Scanner(System.in);
-        String ftServer = "--server=10.12.62.43:6443";
+        String devServer = "--server=10.12.62.43:6443";
         String testServer = "--server=10.12.62.43:6443";
+        String test10Server = "--server=10.12.62.43:6443";
+        String ftServer = "--server=10.12.62.43:6443";
         String prodServer = "--server=https://ocp-prod.rccf.ru:8443";
         String project = in.nextLine();
         if (!Validator.isProjectValid(project)) {
@@ -24,6 +26,9 @@ public class Main {
         }
 //login
         String loginCommand = "";
+
+
+
         switch (project) {
             case "prod": {
                 loginCommand = "oc login " + prodServer + " -u " + PropertyManager.USERNAME + " -p " + PropertyManager.PASSWORD;
@@ -31,13 +36,18 @@ public class Main {
                 break;
             }
             case "dev": {
-                loginCommand = "oc login " + ftServer + " -u " + PropertyManager.USERNAME + " -p " + PropertyManager.PASSWORD;
+                loginCommand = "oc login " + devServer + " -u " + PropertyManager.USERNAME + " -p " + PropertyManager.PASSWORD;
                 loggedIn = "dev";
                 break;
             }
             case "test": {
                 loginCommand = "oc login " + testServer + " -u " + PropertyManager.USERNAME + " -p " + PropertyManager.PASSWORD;
                 loggedIn = "test";
+                break;
+            }
+            case "test10": {
+                loginCommand = "oc login " + test10Server + " -u " + PropertyManager.USERNAME + " -p " + PropertyManager.PASSWORD;
+                loggedIn = "test10";
                 break;
             }
             case "ft": {
@@ -48,23 +58,21 @@ public class Main {
 
         }
 
-        ProcessBuilder builder = new ProcessBuilder(
-                "cmd.exe", "/c", loginCommand);
-        String logDir;
-        if (PropertyManager.LOG_DIR.isEmpty()) {
+        ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", loginCommand);
+        String logDir = PropertyManager.LOG_DIR.isEmpty() ? System.getProperty("user.home") + "\\Desktop\\logs" : PropertyManager.LOG_DIR;
+       /* if (PropertyManager.LOG_DIR.isEmpty()) {
             logDir = System.getProperty("user.home") + "\\Desktop\\logs";
         } else {
             logDir = PropertyManager.LOG_DIR;
-        }
-        builder.redirectErrorStream(true);
-        builder.directory(new File(PropertyManager.OC_DIR));
-        builder.start().waitFor();
-        // Thread.sleep(2000);
+        }*/
+        builder.redirectErrorStream(true)
+                .directory(new File(PropertyManager.OC_DIR))
+                .start().waitFor();
 
         if (!Manager.selectProject(builder, project)) {
             return;
         }
-        String input = "";
+        String input;
         while (true) {
             System.out.println("Enter pod name, or new project name.");
             input = in.nextLine().trim();
@@ -77,17 +85,13 @@ public class Main {
                         if (!loggedIn.equals("prod")) {
                             loginCommand = "oc login " + prodServer + " -u " + PropertyManager.USERNAME + " -p " + PropertyManager.PASSWORD;
                             loggedIn = "prod";
-                            builder.command("cmd.exe", "/c", loginCommand);
-                            builder.start().waitFor();
                             break;
                         }
                     }
                     case "dev": {
-                        if (!loggedIn.equals("test")) {
-                            loginCommand = "oc login " + ftServer + " -u " + PropertyManager.USERNAME + " -p " + PropertyManager.PASSWORD;
+                        if (!loggedIn.equals("dev")) {
+                            loginCommand = "oc login " + devServer + " -u " + PropertyManager.USERNAME + " -p " + PropertyManager.PASSWORD;
                             loggedIn = "dev";
-                            builder.command("cmd.exe", "/c", loginCommand);
-                            builder.start().waitFor();
                             break;
                         }
                     }
@@ -95,8 +99,13 @@ public class Main {
                         if (!loggedIn.equals("test")) {
                             loginCommand = "oc login " + testServer + " -u " + PropertyManager.USERNAME + " -p " + PropertyManager.PASSWORD;
                             loggedIn = "test";
-                            builder.command("cmd.exe", "/c", loginCommand);
-                            builder.start().waitFor();
+                            break;
+                        }
+                    }
+                    case "test10": {
+                        if (!loggedIn.equals("test10")) {
+                            loginCommand = "oc login " + test10Server + " -u " + PropertyManager.USERNAME + " -p " + PropertyManager.PASSWORD;
+                            loggedIn = "test10";
                             break;
                         }
                     }
@@ -104,13 +113,13 @@ public class Main {
                         if (!loggedIn.equals("ft")) {
                             loginCommand = "oc login " + ftServer + " -u " + PropertyManager.USERNAME + " -p " + PropertyManager.PASSWORD;
                             loggedIn = "ft";
-                            builder.command("cmd.exe", "/c", loginCommand);
-                            builder.start().waitFor();
+
                             break;
                         }
                     }
                 }
-
+                builder.command("cmd.exe", "/c", loginCommand);
+                builder.start().waitFor();
                 Manager.selectProject(builder, input);
                 continue;
             }

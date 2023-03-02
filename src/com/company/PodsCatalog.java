@@ -150,13 +150,5 @@ public class PodsCatalog {
         PODS.put("чыщс","x-sell-offer-command");
         PODS.put("xsell","x-sell-offer-command");
         PODS.put("чыудд","x-sell-offer-command");
-
-
-
-
-
-
-
-
     }
 }

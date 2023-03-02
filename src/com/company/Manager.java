@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class Manager {
 
-    static Scanner in = new Scanner(System.in);
     private static String selectedProject = "";
 
     static boolean selectProject(ProcessBuilder builder, String project) throws IOException, InterruptedException {
@@ -15,7 +14,6 @@ public class Manager {
             builder.command("cmd.exe", "/c", "oc project arsnova-" + project);
             Process selectProject = builder.start();
             selectProject.waitFor();
-            //Thread.sleep(400);
             BufferedReader validReader = new BufferedReader(new InputStreamReader(selectProject.getInputStream()));
             String s = validReader.readLine();
             if (s.toLowerCase().contains("error")) {
