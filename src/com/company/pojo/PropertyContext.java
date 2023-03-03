@@ -25,4 +25,10 @@ public class PropertyContext {
         projects.forEach((k, v) -> sb.append("\r\n").append(k).append("\t - \t").append(v));
         return sb.toString();
     }
+
+    public String podsToString(){
+        StringBuilder sb = new StringBuilder();
+        pods.forEach((k, v) -> sb.append("\r\n").append(k).append("\t - \t").append(v));
+        return sb.toString();
+    }
 }

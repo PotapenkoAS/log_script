@@ -7,6 +7,5 @@ public class Validator {
 
     public static boolean isProjectValid(String project) {
         return PropertyManager.context.getProjects().containsKey(project);
-
     }
 }

@@ -45,8 +45,9 @@ public class Main {
             }
             if (Validator.isProjectValid(input)) {
                 Manager.selectProject(builder, input);
+                continue;
             }
-            Manager.findPods(builder, logDir, project);
+            Manager.findPods(builder, logDir, input);
         }
     }
 }

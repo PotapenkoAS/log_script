@@ -7,7 +7,37 @@
     <groupId>org.example</groupId>
     <artifactId>log_script</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
 
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addBuildEnvironmentEntries>
+                                    true
+                                </addBuildEnvironmentEntries>
+
+                                <addClasspath>
+                                    true
+                                </addClasspath>
+
+                                <classpathPrefix>
+                                    directory/relative/to/jar/containing/libraries/
+                                </classpathPrefix>
+
+                                <mainClass>
+                                    com.company.Main
+                                </mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
